@@ -1,0 +1,41 @@
+package exercicios;
+
+import java.util.Scanner;
+
+public class exercicios10 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o preço normal de etiqueta do produto: R$ ");
+        double precoEtiqueta = scanner.nextDouble();
+
+        System.out.println("Escolha a condição de pagamento:");
+        System.out.println("1 - À vista em dinheiro (recebe 10% de desconto)");
+        System.out.println("2 - À vista no cartão de crédito (recebe 15% de desconto)");
+        System.out.println("3 - Em duas vezes (preço normal de etiqueta sem juros)");
+        System.out.print("Digite o código da condição de pagamento: ");
+        int codigoPagamento = scanner.nextInt();
+
+        double valorPago;
+
+        switch (codigoPagamento) {
+            case 1:
+                valorPago = precoEtiqueta - (precoEtiqueta * 0.1); // 10% de desconto
+                break;
+            case 2:
+                valorPago = precoEtiqueta - (precoEtiqueta * 0.15); // 15% de desconto
+                break;
+            case 3:
+                valorPago = precoEtiqueta; // Em duas vezes sem juros
+                break;
+            default:
+                System.out.println("Código de condição de pagamento inválido.");
+                scanner.close();
+                return; // Encerra o programa se o código for inválido
+        }
+
+        System.out.println("O valor a ser pago é: R$ " + valorPago);
+
+        scanner.close();
+    }
+}
